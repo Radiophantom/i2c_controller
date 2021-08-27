@@ -1,4 +1,3 @@
-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
 module i2c_bit_ctrl (
   input   rst_i,
   input   clk_i,
