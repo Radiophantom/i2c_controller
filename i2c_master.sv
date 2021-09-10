@@ -1,22 +1,37 @@
-module i2c_controller (
-  input rst_i,
+module i2c_controller_engine (
+  i2c_if        i2c_if,
 
-  input srst_i,
-  input clk_i,
+  input         rst_i,
+  input         clk_i,
 
-  inout sda_io,
-  inout scl_io
+  // general signals
+  output         cmd_valid_o,
+  input        ready_i,
+
+  // master service signals
+  output         start_send_o,
+  output         stop_send_o,
+
+  // master write signals
+  output         byte_send_o,
+  output   [7:0] byte_o,
+
+  // master read signals
+  output         byte_rcv_o,
+  output         ack_en_o,
+
+  //output        byte_valid_o,
+  //output        start_rcv_o,
+  //output        stop_rcv_o,
+  input        ack_received_i,
+  input  [7:0] byte_i
 );
-
 
 always_ff @( posedge clk_i, posedge rst_i )
   if( rst_i )
     state <= IDLE_S;
   else
-    if( srst_i )
-      state <= IDLE_S;
-    else
-      state <= next_state;
+    state <= next_state;
 
 always_comb
   begin
