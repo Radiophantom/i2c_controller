@@ -1,5 +1,3 @@
-`define SIM
-
 module i2c_transaction_ctrl #(
   parameter REF_CLK_PERIOD = 1_000
 )(
@@ -83,6 +81,8 @@ enum {
 // Bidirectional line control
 //************************************************************
 
+`define SIM
+
 `ifdef SIM
 
   logic sda_io_tmp;
@@ -118,12 +118,16 @@ always_comb
       IDLE_S:
         begin
           if( cmd_valid_i )
-            case( { start_send_i, stop_send_i, byte_send_i, byte_rcv_i } )
-              4'b1000: next_state = SEND_START_S;
-              4'b0100: next_state = SEND_STOP_S;
-              4'b0010: next_state = SEND_BYTE_S;
-              4'b0001: next_state = RCV_BYTE_S;
-            endcase
+            begin
+              if( start_send_i )
+                next_state = SEND_START_S;
+              if( stop_send_i )
+                next_state = SEND_STOP_S;
+              if( byte_send_i )
+                next_state = SEND_BYTE_S;
+              if( byte_rcv_i )
+                next_state = RCV_BYTE_S;
+            end
         end
 
       SEND_START_S:

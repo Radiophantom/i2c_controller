@@ -1,5 +1,7 @@
 `timescale 1ns/1ps
 
+`define SIM
+
 module i2c_bit_ctrl_tb;
 
 bit clk;

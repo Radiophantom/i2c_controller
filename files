@@ -1,0 +1,2 @@
+./i2c_bit_ctrl_tb.sv
+./i2c_transaction_ctrl.sv
