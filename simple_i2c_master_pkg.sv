@@ -1,4 +1,4 @@
-package i2c_master_pkg;
+package simple_i2c_master_pkg;
 
   parameter I2C_VER = 16'h0_0_0_1;
 
@@ -23,20 +23,18 @@ package i2c_master_pkg;
           parameter I2C_CR2_CR_FREQ_5 = 5;
           parameter I2C_CR2_CR_FREQ_0 = 0;
 
-  // Not used in ver1.0
   parameter I2C_OAR1_CR = 2;
+          // Not used in ver1.0
           parameter I2C_OAR1_CR_ADDMODE = 15;
+          // Not used in ver1.0
           parameter I2C_OAR1_CR_ADD_9    = 9;
+          // Not used in ver1.0
           parameter I2C_OAR1_CR_ADD_8    = 8;
+          // Not used in ver1.0
           parameter I2C_OAR1_CR_ADD_7    = 7;
+          // Not used in ver1.0
           parameter I2C_OAR1_CR_ADD_1    = 1;
           parameter I2C_OAR1_CR_ADD_0    = 0;
-
-  // Not used in ver1.0
-  parameter I2C_OAR2_CR = 3;
-          parameter I2C_OAR2_CR_ADD2_7  = 7;
-          parameter I2C_OAR2_CR_ADD2_1  = 1;
-          parameter I2C_OAR2_CR_ENDUAL  = 0;
 
   parameter I2C_DR_CR   = 4;
           parameter I2C_DR_CR_DR_7  = 7;
@@ -60,13 +58,6 @@ package i2c_master_pkg;
           parameter I2C_SR2_CR_BUSY = 1;
           // Not used in ver1.0
           parameter I2C_SR2_CR_MSL  = 0;
-
-  // Not used in ver1.0
-  parameter I2C_CCR_CR  = 7;
-
-  parameter I2C_TRISE_CR  = 8;
-          parameter I2C_TRISE_CR_TRISE_5  = 5;
-          parameter I2C_TRISE_CR_TRISE_0  = 0;
 
   parameter I2C_CR_CNT    = 9;
 
